@@ -1,0 +1,26 @@
+{
+  "name": "eau",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "electron": "^4.0.5",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnonymusRaccoon/EAU.git"
+  },
+  "author": "Anonymous racoon / happy44300",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnonymusRaccoon/EAU/issues"
+  },
+  "homepage": "https://github.com/AnonymusRaccoon/EAU#readme"
+}
