@@ -7,14 +7,36 @@ $theme-colors: (
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 
+*:focus 
+{
+  box-shadow: none !important;
+  outline: none !important;
+}
+
 .icon
 {
   color: #d3d3d3;
+  box-shadow: none;
+  -webkit-box-shadow: none;
   border: none;
-  outline: none;
+  outline:none;
 
   &:hover
   {
     color: #ffffff;
   }
+}
+
+.searchbar
+{
+  border-radius: 30px;
+  background: #353b48;
+  display: inline-flex;
+}
+
+.search
+{
+  border: none;
+  background: none !important;
+  color: white;
 }

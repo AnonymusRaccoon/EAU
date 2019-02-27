@@ -8,10 +8,13 @@
     <body>
         <header>
             <nav class="navbar fixed-top navbar-dark bg-primary align-items-end">
-                <a class="navbar-brand" href="#">EAU</a>
-                <div>
-                    <button type="button" class="btn icon"><i class="fa fa-search"></i></button>
-                    <button type="button" class="btn icon"><i class="fa fa-cog"></i></button>
+                <a class="navbar-brand col" href="#">EAU</a>
+                <div class="col">
+                    <div class="searchbar flex-fill flex-grow-1">
+                        <button type="button" class="btn icon"><i class="fa fa-search"></i></button>
+                        <input type="text" class="search flex-fill" placeholder="Search your library" />
+                    </div>
+                    <button type="button" class="btn icon" style="float: right;"><i class="fa fa-cog"></i></button>
                 </div>
             </nav>
         </header>
