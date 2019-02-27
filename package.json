@@ -1,7 +1,7 @@
 {
   "name": "eau",
   "version": "1.0.0",
-  "description": "",
+  "description": "A global game library manager",
   "main": "main.js",
   "dependencies": {
     "bootstrap": "^4.3.1",
