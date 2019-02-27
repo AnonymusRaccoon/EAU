@@ -6,3 +6,15 @@ $theme-colors: (
 );
 
 @import "../node_modules/bootstrap/scss/bootstrap";
+
+.icon
+{
+  color: #d3d3d3;
+  border: none;
+  outline: none;
+
+  &:hover
+  {
+    color: #ffffff;
+  }
+}
