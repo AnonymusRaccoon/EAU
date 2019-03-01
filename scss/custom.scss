@@ -98,24 +98,3 @@ $theme-colors: (
 }
 .next { right: 5em; }
 .prev { left: 5em; }
-
-//Library
-.grid
-{
-  display: grid;
-  grid-template-columns: auto auto auto;
-}
-
-.game
-{
-  width: 180px;
-
-  > img
-  {
-    width: 180px;
-  }
-  > p
-  {
-    text-align: center;
-  }
-}

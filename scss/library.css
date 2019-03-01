@@ -1,0 +1,22 @@
+.grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto;
+      grid-template-columns: auto auto auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.game {
+  width: 180px;
+}
+
+.game > img {
+  width: 180px;
+}
+
+.game > p {
+  text-align: center;
+}
+/*# sourceMappingURL=library.css.map */

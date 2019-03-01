@@ -1,0 +1,21 @@
+//Library
+.grid
+{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: center;
+}
+
+.game
+{
+  width: 180px;
+
+  > img
+  {
+    width: 180px;
+  }
+  > p
+  {
+    text-align: center;
+  }
+}

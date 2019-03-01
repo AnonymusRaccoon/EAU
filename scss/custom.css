@@ -10729,23 +10729,4 @@ a.text-dark:hover, a.text-dark:focus {
 .prev {
   left: 5em;
 }
-
-.grid {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: auto auto auto;
-      grid-template-columns: auto auto auto;
-}
-
-.game {
-  width: 180px;
-}
-
-.game > img {
-  width: 180px;
-}
-
-.game > p {
-  text-align: center;
-}
 /*# sourceMappingURL=custom.css.map */
