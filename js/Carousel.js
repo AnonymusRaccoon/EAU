@@ -1,20 +1,15 @@
-var carousel = $(".carousel"),
-    currdeg  = 0;
 
-$(".next").on("click", { d: "n" }, rotate);
-$(".prev").on("click", { d: "p" }, rotate);
+radius = 288;
 
-function rotate(e){
-  if(e.data.d=="n"){
-    currdeg = currdeg - 60;
-  }
-  if(e.data.d=="p"){
-    currdeg = currdeg + 60;
-  }
-  carousel.css({
-    "-webkit-transform": "rotateY("+currdeg+"deg)",
-    "-moz-transform": "rotateY("+currdeg+"deg)",
-    "-o-transform": "rotateY("+currdeg+"deg)",
-    "transform": "rotateY("+currdeg+"deg)"
-  });
+var carousel =  document.querySelector(".carousel"); 
+var selectedIndex = 0; 
+
+var nextButton = document.querySelector('.next');
+
+nextButton.addEventListener('click', function() {selectedIndex++;rotateCarousel();});
+console.warn(carousel);
+function rotateCarousel()
+{
+    var angle = 40 * selectedIndex * -1;
+    carousel.style.transform =  + "rotateY" + '(' + angle + 'deg)';
 }
