@@ -13,6 +13,7 @@ $theme-colors: (
   outline: none !important;
 }
 
+//Navigation bar
 .icon
 {
   color: #d3d3d3;
@@ -97,3 +98,24 @@ $theme-colors: (
 }
 .next { right: 5em; }
 .prev { left: 5em; }
+
+//Library
+.grid
+{
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.game
+{
+  width: 180px;
+
+  > img
+  {
+    width: 180px;
+  }
+  > p
+  {
+    text-align: center;
+  }
+}
