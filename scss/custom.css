@@ -10585,10 +10585,6 @@ a.text-dark:hover, a.text-dark:focus {
 
 .icon {
   color: #d3d3d3;
-  box-shadow: none;
-  -webkit-box-shadow: none;
-  border: none;
-  outline: none;
 }
 
 .icon:hover {
@@ -10597,15 +10593,28 @@ a.text-dark:hover, a.text-dark:focus {
 
 .searchbar {
   border-radius: 30px;
-  background: #353b48;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
 }
 
-.search {
-  border: none;
+.searchbar > input {
   background: none !important;
   color: white;
+  border: none;
+  border-bottom: 1px solid #cfcfcf;
+  width: 0;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+.searchbar > input:focus {
+  width: 12rem;
+}
+
+@media (min-width: 576px) {
+  .searchbar > input:focus {
+    width: 20rem;
+  }
 }
 /*# sourceMappingURL=custom.css.map */

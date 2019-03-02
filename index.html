@@ -9,19 +9,20 @@
 
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
         
+        <script src="js/search.js"></script>
         <script src="js/Library.js"></script>
         <script src="js/Carousel.js"></script>
     </head>
     <body onLoad="populateGrid(); setup();">
         <header>
             <nav class="navbar navbar-dark bg-primary align-items-end"> <!--fixed-top-->
-                <a class="navbar-brand col" href="#">EAU</a>
-                <div class="col">
-                    <div class="searchbar flex-fill flex-grow-1">
-                        <button type="button" class="btn icon"><i class="fa fa-search"></i></button>
-                        <input type="text" class="search flex-fill" placeholder="Search your library" />
+                <a class="navbar-brand" href="#">EAU</a>
+                <div style="float: right;">
+                    <div class="searchbar">
+                        <button type="button" class="btn icon" onClick="openSearch()"><i class="fa fa-search"></i></button>
+                        <input type="text" id="searchInput" placeholder="Search your library" />
                     </div>
-                    <button type="button" class="btn icon" style="float: right;"><i class="fa fa-cog"></i></button>
+                    <button type="button" class="btn icon"><i class="fa fa-cog"></i></button>
                 </div>
             </nav>
         </header>
