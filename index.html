@@ -5,11 +5,13 @@
         <link rel="stylesheet" href="scss/custom.css" type="text/css">
         <link rel="stylesheet" href="scss/library.css" type="text/css">
         <link rel="stylesheet" href="scss/carousel.css" type="text/css">
+
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
         
         <script src="js/Library.js"></script>
+        <script src="js/Carousel.js"></script>
     </head>
-    <body onLoad="populateGrid()">
+    <body onLoad="populateGrid(); setup();">
         <header>
             <nav class="navbar navbar-dark bg-primary align-items-end"> <!--fixed-top-->
                 <a class="navbar-brand col" href="#">EAU</a>
@@ -23,27 +25,23 @@
             </nav>
         </header>
 
-            <div class="scene">
-            
-                
-                <div class="carousel">
-                    <div class="carousel__cell">1</div>
-                    <div class="carousel__cell">2</div>
-                    <div class="carousel__cell">3</div>
-                    <div class="carousel__cell">4</div>
-                    <div class="carousel__cell">5</div>
-                    <div class="carousel__cell">6</div>
-                    <div class="carousel__cell">7</div>
-                    <div class="carousel__cell">8</div>
-                    <div class="carousel__cell">9</div>                     
-                </div>
-                <div class="next">Next</div>
-                
+        <div class="scene">
+            <div class="carousel">
+                <div class="carousel__cell">1</div>
+                <div class="carousel__cell">2</div>
+                <div class="carousel__cell">3</div>
+                <div class="carousel__cell">4</div>
+                <div class="carousel__cell">5</div>
+                <div class="carousel__cell">6</div>
+                <div class="carousel__cell">7</div>
+                <div class="carousel__cell">8</div>
+                <div class="carousel__cell">9</div>                     
             </div>
-        
+            <div class="next">Next</div>
+        </div>
+
         <hr>
-        
+
 		<div class="grid" id="library"></div>
     </body>
-    <script src="./js/Carousel.js"> Setupeventlisterner();</script>
 </html>

@@ -1,14 +1,15 @@
-
-radius = 288;
-
-var carousel =  document.querySelector(".carousel"); 
-var selectedIndex = 0; 
-
+var selectedIndex = 0;
+var carousel
 var totalcellcount = 9;
-var angle=0;
-var nextButton = document.querySelector('.next');
+var angle = 0;
 
-nextButton.addEventListener('click', Setupeventlisterner() );
+function setup()
+{
+    carousel = document.querySelector(".carousel");
+    var nextButton = document.querySelector('.next');
+
+    nextButton.addEventListener('click', setupEventListener());
+}
 
 function rotateCarousel(target)
 {  
@@ -23,11 +24,11 @@ function rotateCarousel(target)
     selectedIndex = target;
 }
 
-function Setupeventlisterner()
+function setupEventListener()
 {
-list = document.getElementsByClassName("carousel__cell");
-console.log(list);
-for (i = 0; i < list.length; i++)
+    list = document.getElementsByClassName("carousel__cell");
+    console.log(list);
+    for (i = 0; i < list.length; i++)
     {
         list[i].id= i;
         list[i].addEventListener('click', function() 
