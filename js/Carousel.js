@@ -8,13 +8,11 @@ var totalcellcount = 9;
 var angle=0;
 var nextButton = document.querySelector('.next');
 
-nextButton.addEventListener('click', Setupeventlisterner() );
 
 function rotateCarousel(target)
 {  
     console.log("selectedindex "+selectedIndex);
     console.log("target "+target);
-
     angle = (selectedIndex-target)*40 +angle;
    
     console.log("angle "+ angle);
