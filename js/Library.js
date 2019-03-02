@@ -1,10 +1,11 @@
 "use strict";
 var game = /** @class */ (function () {
-    function game(name, id, thumbnail, launcher, isInstalled, localPath) {
+    function game(name, id, thumbnail, launcher, launcherID, isInstalled, localPath) {
         this.name = name;
         this.id = id;
         this.thumbnail = thumbnail;
         this.launcher = launcher;
+        this.launcherID = launcherID;
         this.isInstalled = isInstalled;
         this.localPath = localPath;
     }
@@ -17,15 +18,15 @@ var launcher;
 })(launcher || (launcher = {}));
 function populateGrid() {
     var games = [
-        new game("La ligue du sel", "", "https://news-a.akamaihd.net/public/images/misc/GameBox.jpg", launcher.LocalOnly, false, ""),
-        new game("Overnetoyé", "", "https://images-na.ssl-images-amazon.com/images/I/51kkc%2BjHrGL.jpg", launcher.LocalOnly, false, "")
+        new game("La ligue du sel", "", "https://news-a.akamaihd.net/public/images/misc/GameBox.jpg", launcher.LocalOnly, "", false, ""),
+        new game("Overnetoyé", "", "https://images-na.ssl-images-amazon.com/images/I/51kkc%2BjHrGL.jpg", launcher.LocalOnly, "", false, "")
     ];
     var grid = document.getElementById("library");
     for (var i = 0; i < games.length; i++) {
         var gridHtml = "<img src='" + games[i].thumbnail + "'/> <p>" + games[i].name + "</p>";
         var element = document.createElement("div");
         element.className = "game";
-        element.onclick = function () { onGameClick(games[i]); };
+        element.onclick = function () { console.log("this"); };
         element.innerHTML = gridHtml;
         if (grid != null)
             grid.appendChild(element);
