@@ -23,11 +23,11 @@
     ;
     position: absolute;
     width: 190px;
-    height: 120px;
+    height: 200px;
     left: 10px;
-    top: 10px;
+    bottom: 0px;
     border: 2px solid;
-   
+    
    
     &:nth-child(1) { transform: rotateY(  0deg) translateZ(288px); background: hsla(  0, 100%, 50%, 0.8); }
     &:nth-child(2) { transform: rotateY( 40deg) translateZ(288px);background: hsla( 40, 100%, 50%, 0.8); }
