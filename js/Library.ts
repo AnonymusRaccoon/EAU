@@ -76,3 +76,11 @@ function onGameClick(gameClicked: Game)
 {
     console.log(gameClicked.name);
 }
+
+function openSearch()
+{
+    let input = <HTMLInputElement>document.getElementById("searchInput");
+
+    input.value = "";
+    input.focus();
+}

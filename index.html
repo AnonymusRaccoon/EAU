@@ -9,23 +9,15 @@
 
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
         
-        <script src="js/search.js"></script>
+        <script>if (typeof module === 'object') { window.module = module; module = undefined; }</script>
+        <script src="node_modules/jquery/dist/jquery.min.js"></script>
+        <script>if (window.module) module = window.module;</script>
+
         <script src="js/Library.js"></script>
         <script src="js/Carousel.js"></script>
     </head>
     <body onLoad="populateGrid(); setup();">
-        <header>
-            <nav class="navbar navbar-dark bg-primary align-items-end"> <!--fixed-top-->
-                <a class="navbar-brand" href="#">EAU</a>
-                <div style="float: right;">
-                    <div class="searchbar">
-                        <button type="button" class="btn icon" onClick="openSearch()"><i class="fa fa-search"></i></button>
-                        <input type="text" id="searchInput" placeholder="Search your library" />
-                    </div>
-                    <button type="button" class="btn icon"><i class="fa fa-cog"></i></button>
-                </div>
-            </nav>
-        </header>
+        <header id="nav"> </header>
 
         <div class="scene">
             <div class="carousel">
@@ -44,6 +36,13 @@
 
         <hr>
 
-		<div class="grid" id="library"></div>
+        <div class="grid" id="library"></div>
+        
+        <script>
+            $(function () 
+            {
+                $("#nav").load("navBar.html");
+            });
+        </script>
     </body>
 </html>

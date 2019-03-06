@@ -62,3 +62,8 @@ function populateGrid() {
 function onGameClick(gameClicked) {
     console.log(gameClicked.name);
 }
+function openSearch() {
+    var input = document.getElementById("searchInput");
+    input.value = "";
+    input.focus();
+}
