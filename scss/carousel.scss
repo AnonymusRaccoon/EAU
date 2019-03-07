@@ -21,7 +21,7 @@
 .carousel__cell
 {
   position: absolute;
-  width: 20vw;
+  width: 25vw;
   height: auto;
   left: 10px;
   bottom: 0px;
@@ -30,7 +30,7 @@
   {
     &:nth-child(#{$i + 1}) 
     {
-      transform: rotateY($i * 20deg) translateZ(880px);
+      transform: rotateY($i * 20deg) translateZ(1000px);
     }
   }
 }
