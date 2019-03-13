@@ -3,45 +3,31 @@
     <head>
         <title>EAU</title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="scss/custom.css" type="text/css">
-        <link rel="stylesheet" href="scss/library.css" type="text/css">
-        <link rel="stylesheet" href="scss/carousel.css" type="text/css">
-
+        <link rel="stylesheet" href="dist/css/custom.css" type="text/css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
         
         <script>if (typeof module === 'object') { window.module = module; module = undefined; }</script>
         <script src="node_modules/jquery/dist/jquery.min.js"></script>
         <script>if (window.module) module = window.module;</script>
 
-        <script src="js/Library.js"></script>
-        <script src="js/Carousel.js"></script>
+        <script src="dist/js/Carousel.js"></script>
+        <script src="dist/js/Library.js"></script>
+        <script src="dist/js/index.js"></script>
     </head>
-    <body onLoad="populateGrid(); setup();">
-        <header id="nav"> </header>
+    <body onLoad="home()">
+        <header> 
+            <nav class="navbar navbar-dark bg-primary align-items-end"> <!--fixed-top-->
+                <a class="navbar-brand" onClick="home()">EAU</a>
+                <div style="float: right;">
+                    <div class="searchbar">
+                        <button type="button" class="btn icon" onClick="openSearch()"><i class="fa fa-search"></i></button>
+                        <input type="text" id="searchInput" placeholder="Search your library" />
+                    </div>
+                    <button type="button" class="btn icon" onClick="openSettings()"><i class="fa fa-cog"></i></button>
+                </div>
+            </nav>
+        </header>
 
-        <div class="scene">
-            <div class="carousel">
-                <img class="carousel__cell" src="https://steamcdn-a.akamaihd.net/steam/apps/504230/header.jpg?t=1547237854"/>
-                <img class="carousel__cell" src="https://steamcdn-a.akamaihd.net/steam/apps/728880/header.jpg?t=1551908455"/>              
-                <img class="carousel__cell" src="https://steamcdn-a.akamaihd.net/steam/apps/427520/header.jpg?t=1551898475"/>          
-                <img class="carousel__cell" src="https://steamcdn-a.akamaihd.net/steam/apps/504230/header.jpg?t=1547237854"/>
-                <img class="carousel__cell" src="https://steamcdn-a.akamaihd.net/steam/apps/504230/header.jpg?t=1547237854"/>
-                <img class="carousel__cell" src="https://steamcdn-a.akamaihd.net/steam/apps/504230/header.jpg?t=1547237854"/>
-                <img class="carousel__cell" src="https://steamcdn-a.akamaihd.net/steam/apps/504230/header.jpg?t=1547237854"/>
-                <img class="carousel__cell" src="https://steamcdn-a.akamaihd.net/steam/apps/504230/header.jpg?t=1547237854"/>
-                <img class="carousel__cell" src="https://steamcdn-a.akamaihd.net/steam/apps/504230/header.jpg?t=1547237854"/>
-            </div>
-        </div>
-
-        <hr>
-
-        <div class="grid" id="library"></div>
-        
-        <script>
-            $(function () 
-            {
-                $("#nav").load("navBar.html");
-            });
-        </script>
+        <div id="content" />
     </body>
 </html>

@@ -4,6 +4,7 @@
   "description": "A global game library manager",
   "main": "main.js",
   "dependencies": {
+    "@types/jquery": "^3.3.29",
     "bootstrap": "^4.3.1",
     "electron": "^4.0.5",
     "jquery": "^3.3.1",
@@ -11,7 +12,6 @@
     "oidc-client": "^1.6.1",
     "popper.js": "^1.14.7"
   },
-  "devDependencies": {},
   "scripts": {
     "start": "electron ."
   },
@@ -19,7 +19,7 @@
     "type": "git",
     "url": "git+https://github.com/AnonymusRaccoon/EAU.git"
   },
-  "author": "Anonymous racoon / happy44300",
+  "author": "Anonymous Raccoon / happy44300",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/AnonymusRaccoon/EAU/issues"

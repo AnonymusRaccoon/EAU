@@ -1,11 +1,11 @@
-@import "../node_modules/bootstrap//scss/functions"; 
-@import "../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap//scss/functions"; 
+@import "../../node_modules/bootstrap/scss/variables";
 
 $theme-colors: (
   primary: #1b57a5
 );
 
-@import "../node_modules/bootstrap/scss/bootstrap";
+@import "../../node_modules/bootstrap/scss/bootstrap";
 
 *:focus 
 {
@@ -49,3 +49,7 @@ $theme-colors: (
     }
   }
 }
+
+@import "fragments/carousel.scss";
+@import "fragments/library.scss";
+@import "fragments/game.scss";

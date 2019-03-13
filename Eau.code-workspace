@@ -4,5 +4,21 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": 
+	{
+		"liveSassCompile.settings.formats": 
+		[
+			{
+				"format": "expanded",
+				"extensionName": ".css",
+				"savePath": "/dist/css"
+			}
+		],
+		"liveSassCompile.settings.excludeList": 
+		[
+			"**/node_modules/**",
+			".vscode/**",
+			"**/src/scss/fragments/**"
+		]
+	}
 }
