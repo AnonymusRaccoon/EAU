@@ -10632,8 +10632,8 @@ a.text-dark:hover, a.text-dark:focus {
   width: 100%;
   height: 100%;
   position: absolute;
-  -webkit-transform: translateZ(-880px) rotateY(0);
-          transform: translateZ(-880px) rotateY(0);
+  -webkit-transform: translateZ(-880vw) rotateY(0);
+          transform: translateZ(-880vw) rotateY(0);
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
   -webkit-transition: -webkit-transform 1s;
