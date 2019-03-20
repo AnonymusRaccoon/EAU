@@ -8,6 +8,7 @@
         
         <script>if (typeof module === 'object') { window.module = module; module = undefined; }</script>
         <script src="node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="node_modules/oidc-client/dist/oidc-client.min.js"></script>
         <script>if (window.module) module = window.module;</script>
 
         <script src="dist/js/Carousel.js"></script>
@@ -17,7 +18,7 @@
     <body onLoad="home()">
         <header> 
             <nav class="navbar navbar-dark bg-primary align-items-end"> <!--fixed-top-->
-                <a class="navbar-brand" onClick="home()">EAU</a>
+                <a id="title" class="navbar-brand text-white" onClick="home()">EAU</a>
                 <div style="float: right;">
                     <div class="searchbar">
                         <button type="button" class="btn icon" onClick="openSearch()"><i class="fa fa-search"></i></button>

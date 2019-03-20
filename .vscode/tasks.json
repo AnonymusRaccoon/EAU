@@ -19,6 +19,16 @@
             "type": "shell",
             "command": "gulp watch",
             "group": "build"
+        },
+        {
+            "label": "Watch Typescript",
+            "type": "typescript",
+            "tsconfig": "tsconfig.json",
+            "option": "watch",
+            "group": "build",
+            "problemMatcher": [
+                "$tsc-watch"
+            ]
         }
     ]
 }
