@@ -30,4 +30,5 @@ function steamLogIn()
 {
     console.log("Logging into steam");
     var manager = new Oidc.UserManager(OidcSettings);
+    manager.signinPopup();
 }
