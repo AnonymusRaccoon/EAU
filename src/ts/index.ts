@@ -15,10 +15,19 @@ function openSettings()
 }
 
 //Log In
-declare var Oidc: UserManager;
+import Oidc, { UserManagerSettings } from "oidc-client";
+
+var OidcSettings: UserManagerSettings = 
+{
+    authority: "https://steamcommunity.com/openid", 
+    client_id: "7C218E8D1347C3CD6CB8117E5ED533BC", 
+    redirect_uri: "localhost:5500",
+    response_type: "token",
+    scope: "openid"
+};
 
 function steamLogIn()
 {
     console.log("Logging into steam");
-    new Oidc.UserManager("https://steamcommunity.com/openid", "7C218E8D1347C3CD6CB8117E5ED533BC", "localhost:5500");
+    var manager = new Oidc.UserManager(OidcSettings);
 }
