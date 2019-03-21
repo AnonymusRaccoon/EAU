@@ -10,20 +10,18 @@
         <script src="node_modules/jquery/dist/jquery.min.js"></script>
         <script>if (window.module) module = window.module;</script>
 
-        <script src="dist/js/Carousel.js"></script>
-        <script src="dist/js/Library.js"></script>
         <script src="dist/js/index.js"></script>
     </head>
-    <body onLoad="home()">
+    <body>
         <header> 
             <nav class="navbar navbar-dark bg-primary align-items-end"> <!--fixed-top-->
-                <a id="title" class="navbar-brand text-white" onClick="home()">EAU</a>
+                <a id="title" class="navbar-brand text-white">EAU</a>
                 <div style="float: right;">
                     <div class="searchbar">
-                        <button type="button" class="btn icon" onClick="openSearch()"><i class="fa fa-search"></i></button>
+                        <button id="searchBtn" type="button" class="btn icon"><i class="fa fa-search"></i></button>
                         <input type="text" id="searchInput" placeholder="Search your library" />
                     </div>
-                    <button type="button" class="btn icon" onClick="openSettings()"><i class="fa fa-cog"></i></button>
+                    <button id="settingsBtn" type="button" class="btn icon"><i class="fa fa-cog"></i></button>
                 </div>
             </nav>
         </header>

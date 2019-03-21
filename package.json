@@ -6,12 +6,12 @@
   "dependencies": {
     "@types/jquery": "^3.3.29",
     "bootstrap": "^4.3.1",
-    "electron": "^4.0.5",
+    "electron": "^4.1.1",
     "gulp": "^4.0.0",
     "gulp-sass": "^4.0.2",
     "jquery": "^3.3.1",
     "npm": "^6.9.0",
-    "oidc-client": "^1.6.1",
+    "oidc-client": "^1.7.0",
     "popper.js": "^1.14.7"
   },
   "scripts": {
@@ -26,5 +26,12 @@
   "bugs": {
     "url": "https://github.com/AnonymusRaccoon/EAU/issues"
   },
-  "homepage": "https://github.com/AnonymusRaccoon/EAU#readme"
+  "homepage": "https://github.com/AnonymusRaccoon/EAU#readme",
+  "devDependencies": {
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.3.4000",
+    "uglifyjs-webpack-plugin": "^2.1.2",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  }
 }

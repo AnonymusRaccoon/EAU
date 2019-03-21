@@ -2,7 +2,7 @@ var selectedIndex = 0;
 var carousel: any;
 var angle = 0;
 
-function setup()
+export function setup()
 {
     carousel = document.querySelector(".carousel");
 
