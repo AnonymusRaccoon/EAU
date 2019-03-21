@@ -3,8 +3,8 @@
   
   margin: 40px 0;
   position: relative;
-  width: 210px;
-  height: 140px;
+  width: 100px;
+  height: 200px;
   margin: 80px auto;
   perspective: 1000px;
 }
@@ -22,16 +22,30 @@
 .carousel__cell
 {
   position: absolute;
-  width: 25vw;
+  width: 300px;
   height: auto;
-  left: 10px;
   bottom: 0px;
 
+  
+  @include media-breakpoint-up(md)
+  {
+    width: 3000px;
+  }
+  @include media-breakpoint-up(lg)
+  {
+    width: 200px;
+  }
+  @include media-breakpoint-up(xl)
+  {
+    width: 300px;
+  }
+
+  
   @for $i from 0 to 9
   {
     &:nth-child(#{$i + 1}) 
     {
-      transform: rotateY($i * 20deg) translateZ(1000px);
+      transform: rotateY($i * 20deg) translateZ(60vw);
     }
   }
 }
