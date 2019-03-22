@@ -30,11 +30,14 @@ function openSearch()
 
 function openSettings()
 {
-    $("#content").load("dist/html/settings.html");
+    $("#content").load("dist/html/settings.html", () =>
+    {
+        // document.getElementById("steamLogBtn").onclick = () => { steamLogIn(); };
+    });
     document.getElementById("title").innerHTML = "<i class='icon fas fa-arrow-left'></i>  Settings";
 }
 
-//Log In
+//Log In (not necesary, only need to use public methods for now)
 // import Oidc, { UserManagerSettings } from "oidc-client";
 
 // var OidcSettings: UserManagerSettings = 
