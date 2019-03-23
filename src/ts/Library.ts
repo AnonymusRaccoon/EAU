@@ -48,7 +48,8 @@ export function populateGrid()
             for (var i = 0; i < response.game_count; i++)
             {
                 let game = response.games[i];
-                let gridHtml = "<img src='" + game.thumbnail + "'/> <p>" + game.name + "</p>";
+                let thumbnail = "https://steamcdn-a.akamaihd.net/steam/apps/" + data.response.games[i].appid + "/header.jpg";
+                let gridHtml = "<img src='" + thumbnail + "'/> <p>" + game.name + "</p>";
                 let element = document.createElement("div");
                 element.className = "game";
                 element.onclick = () => { onGameClick(game); }

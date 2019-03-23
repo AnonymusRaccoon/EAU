@@ -15,7 +15,8 @@
             "label": "Watch SASS",
             "type": "shell",
             "command": "gulp watch",
-            "group": "build"
+            "group": "build",
+            "problemMatcher": []
         },
         {
             "label": "Build Typescript",
