@@ -32,7 +32,7 @@ function openSettings()
 {
     $("#content").load("fragments/settings.html", () =>
     {
-        //Do things when the settings has been loaded.
+
     });
     document.getElementById("title").innerHTML = "<i class='icon fas fa-arrow-left'></i>  Settings";
 }

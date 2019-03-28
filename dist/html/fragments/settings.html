@@ -2,3 +2,12 @@
     <p>Steam</p>
     <button><a class="browser" href="http://eau.raccoon-sdg.fr/steamLog.php">Steam sign in</a></button>
 </div>
+
+<script>
+    $(".browser").click((event) => {
+        if(shell != null)
+            event.preventDefault();
+            
+        shell.openExternal(event.target.href);
+    });
+</script>
