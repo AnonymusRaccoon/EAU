@@ -1,5 +1,5 @@
 const path = require("path");
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+// const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
     entry: [
@@ -23,5 +23,6 @@ module.exports = {
         filename: "index.js",
         path: path.resolve(__dirname, "dist/js")
     },
-    mode: "production"
+    mode: "production",
+    target: "electron-renderer"
 };

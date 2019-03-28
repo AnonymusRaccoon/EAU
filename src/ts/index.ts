@@ -12,7 +12,7 @@ $(function ()
 
 function home()
 {
-    $("#content").load("dist/html/home.html", () =>
+    $("#content").load("fragments/home.html", () =>
     {
         setup()
         populateGrid();
@@ -30,13 +30,9 @@ function openSearch()
 
 function openSettings()
 {
-    $("#content").load("dist/html/settings.html", () =>
+    $("#content").load("fragments/settings.html", () =>
     {
-        document.getElementById("steamLogBtn").onclick = (event) => 
-        { 
-            event.preventDefault();
-            require("electron").shell.openExternal("eau.raccoon-sdg.fr");
-        };
+        //Do things when the settings has been loaded.
     });
     document.getElementById("title").innerHTML = "<i class='icon fas fa-arrow-left'></i>  Settings";
 }

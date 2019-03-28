@@ -22,7 +22,8 @@
             "label": "Build Typescript",
             "type": "shell",
             "command": "npx webpack",
-            "group": "build"
+            "group": "build",
+            "problemMatcher": []
         },
         {
             "label": "Watch Typescript",

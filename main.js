@@ -5,9 +5,9 @@ var win;
 function createWindow()
 {
     win = new BrowserWindow({ width: 1080, height: 720 });
-    win.loadFile("index.html");
+    win.loadFile("dist/html/index.html");
     win.setMenu(null);
-
+    win.webContents.openDevTools();
     win.on("closed", () =>
     {
         win = null;
@@ -25,7 +25,7 @@ app.on("ready", () =>
         console.log("callback: " + callback.name);
     }, (error) => 
     {
-        console.log(error.name);
+        console.log(error);
     });
 });
 
