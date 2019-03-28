@@ -39,3 +39,4 @@ function openSettings()
 
 require("./Library");
 require("./Carousel");
+require("./LocalGameSearch");
