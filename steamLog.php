@@ -1,7 +1,5 @@
 <?php
     require("openid.php");
-    require("secrets.php"); //File excluded from the git repository. This file contains api keys and client secrets.
-
     $openid = new LightOpenID("eau.raccoon-sdg.fr");
     if(!$openid->mode)
     {
