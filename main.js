@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, protocol } = require('electron')
 
 var win;
 
@@ -14,10 +14,19 @@ function createWindow()
     });
 }
 
+app.setAsDefaultProtocolClient("eau");
 app.on("ready", () =>
 {
     createWindow();
-    scanForGames();
+
+    protocol.registerFileProtocol("eau", (request, callback) =>
+    {
+        console.log(request.url);
+        console.log("callback: " + callback.name);
+    }, (error) => 
+    {
+        console.log(error.name);
+    });
 });
 
 app.on("window-all-closed", () =>
@@ -31,9 +40,3 @@ app.on("activate", () =>
     if (win === null)
         createWindow();
 });
-
-
-function scanForGames()
-{
-
-}
