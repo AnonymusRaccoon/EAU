@@ -22,30 +22,28 @@
 .carousel__cell
 {
   position: absolute;
-  width: 10vw;
+  width: 20vw;
   height: auto;
   bottom: 0px;
 
   
   @include media-breakpoint-up(md)
   {
-    width: 10vw;
+    width: 20vw;
   }
   @include media-breakpoint-up(lg)
   {
-    width: 25vw;
-    @for $i from 0 to 9
-    {
-      &:nth-child(#{$i + 1}) 
-      {
-        transform: rotateY($i * 20deg) translateZ(60vw);
-      }
-    }
+    width: 20vw;
+   
+
+      
 
   }
   @include media-breakpoint-up(xl)
   {
     width: 20vw;
+
+    
   }
 
   
