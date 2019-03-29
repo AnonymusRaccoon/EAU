@@ -31,6 +31,20 @@
             "command": "npx webpack --watch",
             "group": "build",
             "problemMatcher": []
+        },
+        {
+            "label": "Build app",
+            "type": "shell",
+            "command": "npm run build",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Start app",
+            "type": "shell",
+            "command": "npm start",
+            "group": "build",
+            "problemMatcher": []
         }
     ]
 }

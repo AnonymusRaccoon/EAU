@@ -6,16 +6,25 @@
   "dependencies": {
     "@types/jquery": "^3.3.29",
     "bootstrap": "^4.3.1",
-    "electron": "^4.1.1",
     "fs": "0.0.1-security",
-    "gulp": "^4.0.0",
-    "gulp-sass": "^4.0.2",
     "jquery": "^3.3.1",
-    "npm": "^6.9.0",
     "popper.js": "^1.14.7"
   },
+  "devDependencies": {
+    "electron": "^4.1.1",
+    "electron-builder": "^20.39.0",
+    "electron-builder-squirrel-windows": "^20.39.0",
+    "gulp": "^4.0.0",
+    "gulp-sass": "^4.0.2",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.3.4000",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0",
+    "npm": "^6.9.0"
+  },
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "build"
   },
   "repository": {
     "type": "git",
@@ -27,11 +36,14 @@
     "url": "https://github.com/AnonymusRaccoon/EAU/issues"
   },
   "homepage": "https://github.com/AnonymusRaccoon/EAU#readme",
-  "devDependencies": {
-    "ts-loader": "^5.3.3",
-    "typescript": "^3.3.4000",
-    "uglifyjs-webpack-plugin": "^2.1.2",
-    "webpack": "^4.29.6",
-    "webpack-cli": "^3.3.0"
+  "build": {
+    "appId": "com.sdg.eau",
+    "directories": {
+      "output": "build"
+    },
+    "win": {
+      "target": "squirrel",
+      "icon": "app.ico"
+    }
   }
 }

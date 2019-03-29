@@ -19,7 +19,7 @@ app.on("ready", () =>
 {
     createWindow();
 
-    protocol.registerFileProtocol("eau", (request, callback) =>
+    protocol.registerHttpProtocol("eau", (request, callback) =>
     {
         console.log(request.url);
         console.log("callback: " + callback.name);
