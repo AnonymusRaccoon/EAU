@@ -12,7 +12,7 @@
     }
     elseif($openid->validate())
     {
-        echo($openid->identity);
+        echo("<script>var a = document.getElementById('appOpen'); a.href = 'eau://steam-" . $openid->identity . "'</script>");
     }
 ?>
 <!DOCTYPE HTML>
@@ -21,5 +21,6 @@
     </head>
     <body>
         <h1>Test</h1>
+        <a id="appOpen" href="eau://test">Open app (click here if you are not automatically redirected)</a>
     </body>
 </html>
