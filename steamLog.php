@@ -10,6 +10,8 @@
     {
         echo("<script>window.close();</script>");
     }
+    elseif($openid->validate())
+    {
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -21,8 +23,6 @@
     </body>
 </html>
 <?php
-    elseif($openid->validate())
-    {
         echo("<script>var a = document.getElementById('appOpen'); a.href = 'eau://steam-" . $openid->identity . "'</script>");
     }
 ?>
