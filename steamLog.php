@@ -10,10 +10,6 @@
     {
         echo("<script>window.close();</script>");
     }
-    elseif($openid->validate())
-    {
-        echo("<script>var a = document.getElementById('appOpen'); a.href = 'eau://steam-" . $openid->identity . "'</script>");
-    }
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -24,3 +20,9 @@
         <a id="appOpen" href="eau://test">Open app (click here if you are not automatically redirected)</a>
     </body>
 </html>
+<?php
+    elseif($openid->validate())
+    {
+        echo("<script>var a = document.getElementById('appOpen'); a.href = 'eau://steam-" . $openid->identity . "'</script>");
+    }
+?>
