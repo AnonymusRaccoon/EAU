@@ -1,5 +1,7 @@
 const { app, BrowserWindow, protocol } = require('electron')
 
+const LocalGameDiscovery = require("./src/js/LocalGameSearch");
+
 var win;
 
 function createWindow()
@@ -40,3 +42,7 @@ app.on("activate", () =>
     if (win === null)
         createWindow();
 });
+
+console.log(typeof LocalGameDiscovery.init);
+LocalGameDiscovery.init();
+

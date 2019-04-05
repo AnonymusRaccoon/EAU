@@ -38,13 +38,6 @@
             "command": "npm run build",
             "group": "build",
             "problemMatcher": []
-        },
-        {
-            "label": "Start app",
-            "type": "shell",
-            "command": "npm start",
-            "group": "build",
-            "problemMatcher": []
         }
     ]
 }

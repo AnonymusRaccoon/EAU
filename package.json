@@ -8,7 +8,8 @@
     "bootstrap": "^4.3.1",
     "fs": "0.0.1-security",
     "jquery": "^3.3.1",
-    "popper.js": "^1.14.7"
+    "popper.js": "^1.14.7",
+    "electron-log": "^3.0.4"
   },
   "devDependencies": {
     "electron": "^4.1.1",

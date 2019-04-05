@@ -5,6 +5,7 @@ import { populateGrid } from "./Library"
 $(function ()
 {
     home();
+    
     document.getElementById("title").onclick = () => { home() };
     document.getElementById("searchBtn").onclick = () => { openSearch() };
     document.getElementById("settingsBtn").onclick = () => { openSettings() };
@@ -37,6 +38,6 @@ function openSettings()
     document.getElementById("title").innerHTML = "<i class='icon fas fa-arrow-left'></i>  Settings";
 }
 
+
 require("./Library");
 require("./Carousel");
-require("./LocalGameSearch");
