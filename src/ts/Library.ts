@@ -32,12 +32,27 @@ enum launcher
     Steam
 }
 
-
 export function populateGrid()
 {
+    var steamToken;
+
+    var userAgent = navigator.userAgent.toLowerCase();
+    if (userAgent.indexOf(" electron/") > -1)
+    {
+        const Store = require("../js/store");
+        const store = new Store("account");
+        steamToken = store.get("steam");
+        console.log("steamToken: " + steamToken);
+    }
+    else
+    {
+        console.log("AGENT IS NOT ELECTRON, NO HANDLING FOR NOW");
+        steamToken = "76561198250223174"; //A default steam client id (for testing only)
+    }
+
     $.get("https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/" +
         "?key=7C218E8D1347C3CD6CB8117E5ED533BC" +
-        "&steamid=76561198250223174" +
+        "&steamid=" + steamToken +
         "&include_appinfo=1" +
         "&include_played_free_games=1" +
         "&appids_filter=", (data) =>

@@ -1,8 +1,50 @@
-const { app, BrowserWindow, protocol } = require('electron')
-
-const LocalGameDiscovery = require("./src/js/LocalGameSearch");
+const { app, BrowserWindow } = require('electron')
+// const LocalGameDiscovery = require("./src/js/LocalGameSearch");
+const Store = require("./src/js/store");
+const log = require("electron-log");
 
 var win;
+
+const lock = app.requestSingleInstanceLock();
+
+if (!lock)
+    app.quit();
+else
+{
+    app.on("second-instance", (_event, argv) =>
+    {
+        log.log("handling new arg (from second instance)");
+        handleArgs(argv.slice(1).toString());
+        if (win)
+        {
+            if (win.isMinimized())
+                win.restore();
+            win.focus();
+        }
+    });
+
+    app.setAsDefaultProtocolClient("eau");
+    app.on("ready", () =>
+    {
+        createWindow();
+        handleArgs(process.argv.slice(1).toString());
+    });
+
+    app.on("window-all-closed", () =>
+    {
+        if (process.platform !== "darwin")
+            app.quit()
+    });
+
+    app.on("activate", () =>
+    {
+        if (win === null)
+            createWindow();
+    });
+
+    // console.log(typeof LocalGameDiscovery.init);
+    // LocalGameDiscovery.init();    
+}
 
 function createWindow()
 {
@@ -16,33 +58,14 @@ function createWindow()
     });
 }
 
-app.setAsDefaultProtocolClient("eau");
-app.on("ready", () =>
+function handleArgs(arg)
 {
-    createWindow();
-
-    protocol.registerHttpProtocol("eau", (request, callback) =>
+    log.log("arg: " + arg);
+    if (arg.startsWith("eau://steam-"))
     {
-        console.log(request.url);
-        console.log("callback: " + callback.name);
-    }, (error) => 
-    {
-        console.log(error);
-    });
-});
-
-app.on("window-all-closed", () =>
-{
-    if (process.platform !== "darwin")
-        app.quit()
-});
-
-app.on("activate", () =>
-{
-    if (win === null)
-        createWindow();
-});
-
-console.log(typeof LocalGameDiscovery.init);
-LocalGameDiscovery.init();
-
+        var token = arg.substring(arg.lastIndexOf("id/") + 3);
+        log.log("Token: " + token);
+        var store = new Store("account");
+        store.set("steam", token);
+    }
+}

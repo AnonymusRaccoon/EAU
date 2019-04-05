@@ -1,12 +1,12 @@
-require("elecron");
-require("path");
-require("fs");
+const electron = require("electron");
+const path = require("path");
+const fs = require("fs");
 
 class Store
 {    
     constructor(name)
     {
-        this.path = path.join((Electron.app || Electron.remote.app).getPath("userData"), name + ".json");
+        this.path = path.join((electron.app || electron.remote.app).getPath("userData"), name + ".json");
         this.data = readFile(this.path);
     }
 
@@ -30,7 +30,7 @@ function readFile(path)
     }
     catch
     {
-        return null;
+        return {};
     }
 }
 
