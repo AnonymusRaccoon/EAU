@@ -10,6 +10,7 @@
     "fs": "0.0.1-security",
     "jquery": "^3.3.1",
     "popper.js": "^1.14.7",
+    "readline-specific": "^1.0.4",
     "simple-vdf": "^1.1.1",
     "winreg": "^1.2.4"
   },

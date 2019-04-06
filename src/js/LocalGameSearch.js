@@ -4,6 +4,8 @@ const fs = require('fs');
 const vdf = require('simple-vdf');
 const path = require("path");
 const Registery = require('winreg');
+const rl = require('readline-specific');
+
 
 module.exports = {
     init: function () { GetGameLocation(); }
@@ -42,23 +44,21 @@ function GetLibrary(err, data)
     
     //normalise path
 
-    
-    let NormalisedSteamPath = path.normalize(data.value + "/steamapps/libraryfolders.vdf");
+    let SteamPath = path.normalize(data.value);
+    let LibrarySteamPath = SteamPath + "/steamapps/libraryfolders.vdf";
     
     //read game library location
       
-     fs.readFile(NormalisedSteamPath, (err, data) =>
+     fs.readFile(LibrarySteamPath, (err, data) =>
      {
-
-        
-
         if (err) throw err;
         let str = data.toString();
         let raw = vdf.parse(str);
         let SteamJSONobj = JSON.parse( JSON.stringify(raw) );
         if (SteamJSONobj === null){console.warn("can't read json")}
         
-        var libraries = [];
+        //assign default game library, steam app(not common)
+        var libraries = [SteamPath];
        
         //get object lenght, +1 because i start at 1
         let totalKey = Object.keys(SteamJSONobj.LibraryFolders).length + 1;
@@ -68,15 +68,47 @@ function GetLibrary(err, data)
             if(SteamJSONobj.LibraryFolders[i] != null)
             {
                 //WARNING i is initiliated at 1
-                libraries[i-1] = SteamJSONobj.LibraryFolders[i];
-                console.log(libraries[i-1]);
+                libraries[i] = path.normalize(SteamJSONobj.LibraryFolders[i].toString());
+            }
+        }
+        //console.log(libraries);
+        AnalyseLibrary(err,libraries);
+    });
+function AnalyseLibrary(err, data)
+    { 
+
+        //on hard code la request pour le moment https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=7C218E8D1347C3CD6CB8117E5ED533BC&steamid=76561198250223174&include_appinfo=1&include_played_free_games=1&appids_filter=
+        
+        //Look into steam libraries folders for acf file
+        for(var i=0;i < data.length; i++ )
+        {
+            
+            let files = fs.readdirSync(path.normalize(data[i] + "\\steamapps"));
+            
+           
+            //only select acf file
+            for(let o = 0; o < files.length; o++)
+            {     
+                if(path.extname(files[o]) === '.acf')
+                { 
+                    rl.oneline(data[i] + "\\steamapps\\" + files[o] ,5, Parser );
+                }
             }
         }
         
-    });
-function AnalyseLibrary(err, data)
-    {
-
     }
+
+var Parser = function(err, str)
+{
+    if (err) console.log(err);
+
+    // \s is the regex for "whitespace", and g is the "global" flag, meaning match ALL \s (whitespaces).
+    str = str.replace(/\s+/g, '');
+    //basicelly we are just hard-cutting the string hoping it'll never change but steam never change anything not even it's login system
+    str = str.substring(7, str.length -1);
+    console.log("srt: "+str);
+
+};
+    
 }
 
