@@ -6,10 +6,12 @@
   "dependencies": {
     "@types/jquery": "^3.3.29",
     "bootstrap": "^4.3.1",
+    "electron-log": "^3.0.4",
     "fs": "0.0.1-security",
     "jquery": "^3.3.1",
     "popper.js": "^1.14.7",
-    "electron-log": "^3.0.4"
+    "simple-vdf": "^1.1.1",
+    "winreg": "^1.2.4"
   },
   "devDependencies": {
     "electron": "^4.1.1",

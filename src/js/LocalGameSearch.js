@@ -11,6 +11,7 @@ module.exports = {
 
 function GetGameLocation()
 {
+    
     //64bit regObj path    
     RegSteamPath = new Registery({
         hive: Registery.HKLM,
@@ -43,7 +44,6 @@ function GetLibrary(err, data)
 
     
     let NormalisedSteamPath = path.normalize(data.value + "/steamapps/libraryfolders.vdf");
-    console.log("normalised path: " + NormalisedSteamPath);
     
     //read game library location
       
@@ -56,15 +56,27 @@ function GetLibrary(err, data)
         let str = data.toString();
         let raw = vdf.parse(str);
         let SteamJSONobj = JSON.parse( JSON.stringify(raw) );
-        console.log(SteamJSONobj.LibraryFolders["1"]);
-
         if (SteamJSONobj === null){console.warn("can't read json")}
         
-        for (let i = 0; i > 10; i++ )
+        var libraries = [];
+       
+        //get object lenght, +1 because i start at 1
+        let totalKey = Object.keys(SteamJSONobj.LibraryFolders).length + 1;
+
+        for (let i = 1; i < totalKey; i++ )
         {
-            console.log(SteamJSONobj.LibraryFolders);
+            if(SteamJSONobj.LibraryFolders[i] != null)
+            {
+                //WARNING i is initiliated at 1
+                libraries[i-1] = SteamJSONobj.LibraryFolders[i];
+                console.log(libraries[i-1]);
+            }
         }
-        //console.log(SteamJSONobj.LibraryFolders.1);
+        
     });
+function AnalyseLibrary(err, data)
+    {
+
+    }
 }
 

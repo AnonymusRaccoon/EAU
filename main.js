@@ -1,5 +1,5 @@
 const { app, BrowserWindow } = require('electron')
-// const LocalGameDiscovery = require("./src/js/LocalGameSearch");
+const LocalGameDiscovery = require("./src/js/LocalGameSearch");
 const Store = require("./src/js/store");
 const log = require("electron-log");
 
@@ -42,8 +42,8 @@ else
             createWindow();
     });
 
-    // console.log(typeof LocalGameDiscovery.init);
-    // LocalGameDiscovery.init();    
+   
+    LocalGameDiscovery.init();    
 }
 
 function createWindow()
