@@ -5,3 +5,4 @@ Please note that this project is currently under developement and awaiting a fir
 # Current Status
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+![Dependencies](https://david-dm.org/AnonymusRaccoon/EAU.svg)
