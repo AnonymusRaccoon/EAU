@@ -36,7 +36,7 @@
   {
     &:nth-child(#{$i + 1}) 
     {
-      transform: rotateY($i * 20deg) translateZ(60vw);
+      transform: rotateY($i * 20deg) translateZ(120vw);
     }
   }
 }
