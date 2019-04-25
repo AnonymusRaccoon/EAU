@@ -36,7 +36,7 @@
   {
     &:nth-child(#{$i + 1}) 
     {
-      transform: rotateY($i * 20deg) translateZ(350vw);
+      transform: rotateY($i * 20deg) translateZ(130vw);
       
       @include media-breakpoint-up(md)
       {
