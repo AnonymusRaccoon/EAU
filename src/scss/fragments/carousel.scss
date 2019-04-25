@@ -22,7 +22,7 @@
 .carousel__cell
 {
   position: absolute;
-  width: 20vw;
+  width: 70vw;
   height: auto;
   bottom: 0px;
 
@@ -31,21 +31,6 @@
   {
     width: 20vw;
   }
-  @include media-breakpoint-up(lg)
-  {
-    width: 20vw;
-   
-
-      
-
-  }
-  @include media-breakpoint-up(xl)
-  {
-    width: 20vw;
-
-    
-  }
-
   
   @for $i from 0 to 9
   {
