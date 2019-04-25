@@ -46,8 +46,8 @@ function GetLibrary(err, data)
     //normalise path
 
     let SteamPath = path.normalize(data.value);
-    let store = new store("SteamGamesMetas");
-    store.set("SteamPath", SteamPath)
+    let store__ = new store("SteamGamesMetas");
+    store__.set("SteamPath", SteamPath)
 
     let LibrarySteamPath = SteamPath + "/steamapps/libraryfolders.vdf";
     
@@ -97,13 +97,15 @@ function AnalyseLibrary(err, data)
             {     
                 if(path.extname(files[o]) === '.acf')
                 { 
-                    rl.oneline(data[i] + "\\steamapps\\" + files[o] ,5, function(err,str){//note change to cut dirname
-                        let Game = new GameMeta(null, Cutter(err, str));
-                        rl.oneline(data[i] + "\\steamapps\\" + files[o] ,3, function(err,str_){
-                            Game.AppId = Cutter(err, str_);
-                            let store = new store("SteamGamesMetas");
-                            store.set(Game.AppId, Game); 
-                        } );
+                    rl.oneline(data[i] + "\\steamapps\\" + files[o] ,7, function(err,str){//note change to cut dirname
+                        let Game = new GameMeta(null, Cutter(str));
+
+                        rl.oneline(data[i] + "\\steamapps\\" + files[o] ,3, function(err,str_)
+                        { 
+                            Game.AppId = Cutter(str_); 
+                            let store_ = new store("SteamGamesMetas"); 
+                            store_.set(Game.AppId, Game); 
+                    });
                             
                     } );
 
@@ -113,21 +115,18 @@ function AnalyseLibrary(err, data)
         
     }
 
-var Cutter = function(err, str)
+function Cutter (str)
 {
-    if (err) console.log(err);
-
     //select the last text between quote aka hard cutting
-    str = substring(0,str.length -1);
+    str = str.substring(0, str.length-1); //-1 to ignore the lasts closings ""
     let index = str.lastIndexOf('"');
-    str = substring(index, str.length);
+    str = str.substring(index+1, str.length); //+1 because the " is excluded
+    return str;
 
 };
 
 class GameMeta
 {
-    AppId;
-    GameDirectory;
     constructor(AppId, GameDirectory)
     {
         this.AppId = AppId;
