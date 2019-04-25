@@ -5,6 +5,7 @@ const vdf = require('simple-vdf');
 const path = require("path");
 const Registery = require('winreg');
 const rl = require('readline-specific');
+const store = require('./store');
 
 
 module.exports = {
@@ -45,6 +46,9 @@ function GetLibrary(err, data)
     //normalise path
 
     let SteamPath = path.normalize(data.value);
+    let store = new store("SteamGamesMetas");
+    store.set("SteamPath", SteamPath)
+
     let LibrarySteamPath = SteamPath + "/steamapps/libraryfolders.vdf";
     
     //read game library location
@@ -74,13 +78,15 @@ function GetLibrary(err, data)
         //console.log(libraries);
         AnalyseLibrary(err,libraries);
     });
+}
+
 function AnalyseLibrary(err, data)
     { 
 
         //on hard code la request pour le moment https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=7C218E8D1347C3CD6CB8117E5ED533BC&steamid=76561198250223174&include_appinfo=1&include_played_free_games=1&appids_filter=
         
         //Look into steam libraries folders for acf file
-        for(var i=0;i < data.length; i++ )
+        for(let i=0;i < data.length; i++ )
         {
             
             let files = fs.readdirSync(path.normalize(data[i] + "\\steamapps"));
@@ -91,24 +97,42 @@ function AnalyseLibrary(err, data)
             {     
                 if(path.extname(files[o]) === '.acf')
                 { 
-                    rl.oneline(data[i] + "\\steamapps\\" + files[o] ,5, Parser );
+                    rl.oneline(data[i] + "\\steamapps\\" + files[o] ,5, function(err,str){//note change to cut dirname
+                        let Game = new GameMeta(null, Cutter(err, str));
+                        rl.oneline(data[i] + "\\steamapps\\" + files[o] ,3, function(err,str_){
+                            Game.AppId = Cutter(err, str_);
+                            let store = new store("SteamGamesMetas");
+                            store.set(Game.AppId, Game); 
+                        } );
+                            
+                    } );
+
                 }
             }
         }
         
     }
 
-var Parser = function(err, str)
+var Cutter = function(err, str)
 {
     if (err) console.log(err);
 
-    // \s is the regex for "whitespace", and g is the "global" flag, meaning match ALL \s (whitespaces).
-    str = str.replace(/\s+/g, '');
-    //basicelly we are just hard-cutting the string hoping it'll never change but steam never change anything not even it's login system
-    str = str.substring(7, str.length -1);
-    console.log("srt: "+str);
+    //select the last text between quote aka hard cutting
+    str = substring(0,str.length -1);
+    let index = str.lastIndexOf('"');
+    str = substring(index, str.length);
 
 };
-    
+
+class GameMeta
+{
+    AppId;
+    GameDirectory;
+    constructor(AppId, GameDirectory)
+    {
+        this.AppId = AppId;
+        this.GameDirectory = GameDirectory;
+    }
 }
+
 
