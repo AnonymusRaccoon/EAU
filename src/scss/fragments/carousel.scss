@@ -36,7 +36,12 @@
   {
     &:nth-child(#{$i + 1}) 
     {
-      transform: rotateY($i * 20deg) translateZ(120vw);
+      transform: rotateY($i * 20deg) translateZ(150vw);
+      
+      @include media-breakpoint-up(md)
+      {
+        transform: rotateY($i * 20deg) translateZ(60vw);
+      }
     }
   }
 }
