@@ -22,7 +22,7 @@
 .carousel__cell
 {
   position: absolute;
-  width: 70vw;
+  width: 45vw;
   height: auto;
   bottom: 0px;
 
@@ -36,7 +36,7 @@
   {
     &:nth-child(#{$i + 1}) 
     {
-      transform: rotateY($i * 20deg) translateZ(150vw);
+      transform: rotateY($i * 20deg) translateZ(350vw);
       
       @include media-breakpoint-up(md)
       {
