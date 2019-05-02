@@ -36,12 +36,14 @@ export function populateGrid()
 {
     var steamToken;
 
-    var userAgent = navigator.userAgent.toLowerCase();
-    if (userAgent.indexOf(" electron/") > -1)
+    const userAgent = navigator.userAgent.toLowerCase();
+    var isElectron = userAgent.indexOf(" electron/") > -1;
+    const store = new Store("SteamGamesMetas");
+    if (isElectron)
     {
         const Store = require("../js/store");
-        const store = new Store("account");
-        steamToken = store.get("steam");
+        const tknStore = new Store("account");
+        steamToken = tknStore.get("steam");
         console.log("steamToken: " + steamToken);
     }
     else
@@ -63,11 +65,19 @@ export function populateGrid()
             for (var i = 0; i < response.game_count; i++)
             {
                 let game = response.games[i];
-                let thumbnail = "https://steamcdn-a.akamaihd.net/steam/apps/" + data.response.games[i].appid + "/header.jpg";
+                let thumbnail = "https://steamcdn-a.akamaihd.net/steam/apps/" + game.appid + "/header.jpg";
                 let gridHtml = "<img src='" + thumbnail + "'/> <p>" + game.name + "</p>";
                 let element = document.createElement("div");
                 element.className = "game";
                 element.onclick = () => { onGameClick(game); }
+                
+                //Check if the game is already downloaded and if it is, display it
+                if(isElectron)
+                {
+                    if(store.get(game.appid) != null)
+                        gridHtml += <img src="/drawable/check.svg" style="position: absolute; right: 0; padding: 5px;"/>
+                }
+                
                 element.innerHTML = gridHtml;
                 if (grid != null)
                     grid.appendChild(element);
