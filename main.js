@@ -48,7 +48,7 @@ else
 
 function createWindow()
 {
-    win = new BrowserWindow({ width: 1080, height: 720 });
+    win = new BrowserWindow({ width: 1080, height: 720, webPreferences: { webSecurity: false } });
     win.loadFile("dist/html/index.html");
     win.setMenu(null);
     win.webContents.openDevTools();
