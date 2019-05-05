@@ -1,7 +1,37 @@
-<div class="container">
-    <p>Steam</p>
-    <button><a class="browser" href="http://eau.raccoon-sdg.fr/steamLog.php">Steam sign in</a></button>
-</div>
+
+<div class="wrapper">
+
+    <!-- Sidebar -->
+    <nav id = "sidebar">
+         <!-- Sidebar header -->
+        <div class="sidebar-header">
+            <h3>Options</h3>
+        </div>
+        <hr>
+         <!-- Sidebar content -->
+        <ul class="list-unstyled components">
+            <li class ="list">
+                <a href="#Auto">Game detection</a>
+            </li>
+            <li>
+                <a href="#Man">Manually add game</a>
+            </li>
+        </ul>       
+    </nav>
+
+
+    <!-- Content -->
+    <div class = "container">
+        <h1 name ="Auto">Automatic game detection</h1>
+        
+        <p>Sign in trought steam to register your steam game on this PC</p>
+        <input type="image" src="https://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_small.png" />
+            <a class="browser" href="http://eau.raccoon-sdg.fr/steamLog.php"></a>
+        </input>
+        <h1 name ="Man">Manually add game</h1>
+    </div>
+
+
 
 <script>
     $(".browser").click((event) => {
@@ -11,3 +41,4 @@
         shell.openExternal(event.target.href);
     });
 </script>
+</div>

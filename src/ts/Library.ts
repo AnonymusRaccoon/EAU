@@ -7,17 +7,17 @@ interface SteamResponse
 class Game
 {
     name: string;
-    id: string;
+    appid: string;
     thumbnail: string;
     launcher: launcher;
     launcherID: string;
     isInstalled: boolean;
     localPath: string;
 
-    constructor(name: string, id: string, thumbnail: string, launcher: launcher, launcherID: string, isInstalled: boolean, localPath: string)
+    constructor(name: string, appid: string, thumbnail: string, launcher: launcher, launcherID: string, isInstalled: boolean, localPath: string)
     {
         this.name = name;
-        this.id = id
+        this.appid = appid
         this.thumbnail = thumbnail;
         this.launcher = launcher;
         this.launcherID = launcherID;
@@ -35,13 +35,13 @@ enum launcher
 export function populateGrid()
 {
     var steamToken;
-
+    const Store = require("../js/store");
     const userAgent = navigator.userAgent.toLowerCase();
     var isElectron = userAgent.indexOf(" electron/") > -1;
     const store = new Store("SteamGamesMetas");
     if (isElectron)
     {
-        const Store = require("../js/store");
+      
         const tknStore = new Store("account");
         steamToken = tknStore.get("steam");
         console.log("steamToken: " + steamToken);
@@ -75,7 +75,7 @@ export function populateGrid()
                 if(isElectron)
                 {
                     if(store.get(game.appid) != null)
-                        gridHtml += <img src="/drawable/check.svg" style="position: absolute; right: 0; padding: 5px;"/>
+                        gridHtml += '<img src="/drawable/check.svg" style="position: absolute; right: 0; padding: 5px;"/>'
                 }
                 
                 element.innerHTML = gridHtml;

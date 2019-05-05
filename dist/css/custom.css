@@ -4,6 +4,7 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -7069,112 +7070,63 @@ a.text-dark:hover, a.text-dark:focus {
   width: 100%;
   height: 100%;
   position: absolute;
-  transform: translateZ(-880px) rotateY(0);
+  transform: translateZ(-880px) rotateY(-100deg);
   transform-style: preserve-3d;
   transition: transform 1s; }
 
 .carousel__cell {
-	position: absolute;
-	width: 45vw;
-	height: auto;
-	bottom: 0px;
-}
-
-@media (min-width: 768px) {
-	.carousel__cell {
-		width: 20vw;
-	}
-}
-
-.carousel__cell:nth-child(1) {
-	transform: rotateY(0deg) translateZ(130vw);
-}
-
-@media (min-width: 768px) {
-	.carousel__cell:nth-child(1) {
-		transform: rotateY(0deg) translateZ(60vw);
-	}
-}
-
-.carousel__cell:nth-child(2) {
-	transform: rotateY(20deg) translateZ(130vw);
-}
-
-@media (min-width: 768px) {
-	.carousel__cell:nth-child(2) {
-		transform: rotateY(20deg) translateZ(60vw);
-	}
-}
-
-.carousel__cell:nth-child(3) {
-	transform: rotateY(40deg) translateZ(130vw);
-}
-
-@media (min-width: 768px) {
-	.carousel__cell:nth-child(3) {
-		transform: rotateY(40deg) translateZ(60vw);
-	}
-}
-
-.carousel__cell:nth-child(4) {
-	transform: rotateY(60deg) translateZ(130vw);
-}
-
-@media (min-width: 768px) {
-	.carousel__cell:nth-child(4) {
-		transform: rotateY(60deg) translateZ(60vw);
-	}
-}
-
-.carousel__cell:nth-child(5) {
-	transform: rotateY(80deg) translateZ(130vw);
-}
-
-@media (min-width: 768px) {
-	.carousel__cell:nth-child(5) {
-		transform: rotateY(80deg) translateZ(60vw);
-	}
-}
-
-.carousel__cell:nth-child(6) {
-	transform: rotateY(100deg) translateZ(130vw);
-}
-
-@media (min-width: 768px) {
-	.carousel__cell:nth-child(6) {
-		transform: rotateY(100deg) translateZ(60vw);
-	}
-}
-
-.carousel__cell:nth-child(7) {
-	transform: rotateY(120deg) translateZ(130vw);
-}
-
-@media (min-width: 768px) {
-	.carousel__cell:nth-child(7) {
-		transform: rotateY(120deg) translateZ(60vw);
-	}
-}
-
-.carousel__cell:nth-child(8) {
-	transform: rotateY(140deg) translateZ(130vw);
-}
-
-@media (min-width: 768px) {
-	.carousel__cell:nth-child(8) {
-		transform: rotateY(140deg) translateZ(60vw);
-	}
-}
-
-.carousel__cell:nth-child(9) {
-	transform: rotateY(160deg) translateZ(130vw);
-}
-
-@media (min-width: 768px) {
-	.carousel__cell:nth-child(9) {
-		transform: rotateY(160deg) translateZ(60vw);
-	}
-}
+  position: absolute;
+  width: 45vw;
+  height: auto;
+  bottom: 0px; }
+  @media (min-width: 768px) {
+    .carousel__cell {
+      width: 20vw; } }
+  .carousel__cell:nth-child(1) {
+    transform: rotateY(0deg) translateZ(130vw); }
+    @media (min-width: 768px) {
+      .carousel__cell:nth-child(1) {
+        transform: rotateY(0deg) translateZ(60vw); } }
+  .carousel__cell:nth-child(2) {
+    transform: rotateY(20deg) translateZ(130vw); }
+    @media (min-width: 768px) {
+      .carousel__cell:nth-child(2) {
+        transform: rotateY(20deg) translateZ(60vw); } }
+  .carousel__cell:nth-child(3) {
+    transform: rotateY(40deg) translateZ(130vw); }
+    @media (min-width: 768px) {
+      .carousel__cell:nth-child(3) {
+        transform: rotateY(40deg) translateZ(60vw); } }
+  .carousel__cell:nth-child(4) {
+    transform: rotateY(60deg) translateZ(130vw); }
+    @media (min-width: 768px) {
+      .carousel__cell:nth-child(4) {
+        transform: rotateY(60deg) translateZ(60vw); } }
+  .carousel__cell:nth-child(5) {
+    transform: rotateY(80deg) translateZ(130vw); }
+    @media (min-width: 768px) {
+      .carousel__cell:nth-child(5) {
+        transform: rotateY(80deg) translateZ(60vw); } }
+  .carousel__cell:nth-child(6) {
+    transform: rotateY(100deg) translateZ(130vw); }
+    @media (min-width: 768px) {
+      .carousel__cell:nth-child(6) {
+        transform: rotateY(100deg) translateZ(60vw); } }
+  .carousel__cell:nth-child(7) {
+    transform: rotateY(120deg) translateZ(130vw); }
+    @media (min-width: 768px) {
+      .carousel__cell:nth-child(7) {
+        transform: rotateY(120deg) translateZ(60vw); } }
+  .carousel__cell:nth-child(8) {
+    transform: rotateY(140deg) translateZ(130vw); }
+    @media (min-width: 768px) {
+      .carousel__cell:nth-child(8) {
+        transform: rotateY(140deg) translateZ(60vw); } }
+  .carousel__cell:nth-child(9) {
+    transform: rotateY(160deg) translateZ(130vw); }
+    @media (min-width: 768px) {
+      .carousel__cell:nth-child(9) {
+        transform: rotateY(160deg) translateZ(60vw); } }
 
 .grid {
   display: flex;
@@ -7207,3 +7159,36 @@ a.text-dark:hover, a.text-dark:focus {
 
 .game-head {
   width: 100%; }
+
+body {
+  font-family: 'Poppins', sans-serif; }
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+  background-color: #ffffff; }
+
+#sidebar {
+  min-width: 250px;
+  max-width: 250px;
+  background: white;
+  transition: all 0.3s;
+  min-height: 100vh;
+  color: #000000;
+  text-decoration: none; }
+
+#sidebar .sidebar-header {
+  padding: 20px;
+  background: inherit;
+  color: inherit; }
+
+#sidebar ul li a {
+  padding: 10px;
+  font-size: 1.1em;
+  display: block; }
+
+#sidebar ul li a:hover {
+  color: black;
+  background: #fff;
+  text-decoration: none; }
