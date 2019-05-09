@@ -35,30 +35,30 @@ enum launcher
 export function populateGrid()
 {
     var steamToken;
-    const Store = require("../js/store");
-    const userAgent = navigator.userAgent.toLowerCase();
-    var isElectron = userAgent.indexOf(" electron/") > -1;
-    const store = new Store("SteamGamesMetas");
-    if (isElectron)
-    {
+    // const Store = require("../js/store");
+    // const userAgent = navigator.userAgent.toLowerCase();
+    // var isElectron = userAgent.indexOf(" electron/") > -1;
+    // const store = new Store("SteamGamesMetas");
+    // if (isElectron)
+    // {
       
-        const tknStore = new Store("account");
-        steamToken = tknStore.get("steam");
-        console.log("steamToken: " + steamToken);
-    }
-    else
-    {
+    //     const tknStore = new Store("account");
+    //     steamToken = tknStore.get("steam");
+    //     console.log("steamToken: " + steamToken);
+    // }
+    // else
+    // {
         console.log("AGENT IS NOT ELECTRON, NO HANDLING FOR NOW");
         steamToken = "76561198250223174"; //A default steam client id (for testing only)
-    }
+    // }
 
-    $.get("https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/" +
+    $.getJSON("https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/" +
         "?key=7C218E8D1347C3CD6CB8117E5ED533BC" +
         "&steamid=" + steamToken +
         "&include_appinfo=1" +
         "&include_played_free_games=1" +
-        "&appids_filter=", (data) =>
-        {
+        "&appids_filter=&format=json", (data) =>
+        {//https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=7C218E8D1347C3CD6CB8117E5ED533BC&steamid=76561198250223174&include_appinfo=1&include_played_free_games=1&appids_filter=
             let response: SteamResponse = data.response;
             
             let grid = document.getElementById("library");
@@ -72,11 +72,11 @@ export function populateGrid()
                 element.onclick = () => { onGameClick(game); }
                 
                 //Check if the game is already downloaded and if it is, display it
-                if(isElectron)
-                {
-                    if(store.get(game.appid) != null)
-                        gridHtml += '<img src="/drawable/check.svg" style="position: absolute; right: 0; padding: 5px;"/>'
-                }
+                // if(isElectron)
+                // {
+                //     if(store.get(game.appid) != null)
+                //         gridHtml += '<img src="/drawable/check.svg" style="position: absolute; right: 0; padding: 5px;"/>'
+                // }
                 
                 element.innerHTML = gridHtml;
                 if (grid != null)

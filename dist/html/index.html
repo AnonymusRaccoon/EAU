@@ -8,15 +8,15 @@
         
         <script>if (typeof module === 'object') { window.module = module; module = undefined; }</script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-        //<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+        <!-- <script src="../../node_modules/jquery/dist/jquery.min.js"></script> !-->
         <script>if (window.module) module = window.module;</script>
 
         <script src="../js/electron-specific.js"></script> <!--Using this script because electrons scripts cant be compiled-->
         <script src="../js/index.js"></script>
     </head>
     <body>
-        <header> 
-            <nav class="navbar navbar-dark bg-primary align-items-end"> <!--fixed-top-->
+        <header height="56px"> 
+            <nav class="navbar navbar-dark bg-primary align-items-end fixed-top">
                 <a id="title" class="navbar-brand text-white">EAU</a>
                 <div style="float: right;">
                     <div class="searchbar">
