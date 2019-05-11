@@ -3,11 +3,6 @@
 
     <!-- Sidebar -->
     <nav id = "sidebar">
-         <!-- Sidebar header -->
-        <div class="sidebar-header">
-            <h3>Options</h3>
-        </div>
-        <hr>
          <!-- Sidebar content -->
         <ul class="list-unstyled components">
             <li class ="list">
@@ -25,16 +20,19 @@
         <h1 name ="Auto">Automatic game detection</h1>
         
         <p>Sign in trought steam to register your steam game on this PC</p>
-        <input type="image" src="https://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_small.png">
-            <a class="browser" href="http://eau.raccoon-sdg.fr/steamLog.php"></a>
-        </input>
+            <a class="browser" href="http://eau.raccoon-sdg.fr/steamLog.php">Sign IN
+                <!-- <img src="https://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_small.png" /> -->
+            </a>
         <h1 name ="Man">Manually add game</h1>
     </div>
 
 
 
 <script>
-    $(".browser").click((event) => {
+    $(".browser").click((event) => 
+    {
+        console.log("clicked, event href: " + event.target.href);
+        console.log("shell: " + shell);
         if(shell != null)
             event.preventDefault();
             
