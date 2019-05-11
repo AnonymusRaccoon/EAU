@@ -50,6 +50,30 @@ $theme-colors: (
   }
 }
 
+.dark-mode
+{
+  background-color: #212121;
+  color: #ffffff;
+
+  hr
+  {
+    color: #ffffff;
+    border-color: #ffffff;
+    border-style: solid;
+    background-color: #ffffff;
+  }
+
+  #setting-sidebar
+  {
+    background-color: #121212;
+
+    a:hover
+    {
+      background: #424242;
+    }
+  }
+}
+
 @import "fragments/carousel.scss";
 @import "fragments/library.scss";
 @import "fragments/game.scss";

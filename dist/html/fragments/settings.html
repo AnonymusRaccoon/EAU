@@ -1,9 +1,6 @@
-
-<div class="wrapper">
-
+<div class="setting-wraper">
     <!-- Sidebar -->
-    <nav id = "sidebar">
-         <!-- Sidebar content -->
+    <nav id = "setting-sidebar">
         <ul class="list-unstyled components">
             <li class ="list">
                 <a href="#Auto">Game detection</a>
@@ -11,32 +8,34 @@
             <li>
                 <a href="#Man">Manually add game</a>
             </li>
+            <li>
+                <a href="#Man">Appearances</a>
+            </li>
         </ul>       
     </nav>
-
 
     <!-- Content -->
     <div class = "container">
         <h1 name ="Auto">Automatic game detection</h1>
-        
         <p>Sign in trought steam to register your steam game on this PC</p>
-            <a class="browser" href="http://eau.raccoon-sdg.fr/steamLog.php">Sign IN
-                <!-- <img src="https://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_small.png" /> -->
-            </a>
-        <h1 name ="Man">Manually add game</h1>
-    </div>
+        <a class="browser" href="http://eau.raccoon-sdg.fr/steamLog.php">Sign IN
+            <!-- <img src="https://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_small.png" /> -->
+        </a>
 
+        <h1 name ="Man">Manually add game</h1>
+
+        <h1 name ="Man">Appearances</h1>
+        <p>Use the dark mode: </p>
+    </div>
+</div>
 
 
 <script>
     $(".browser").click((event) => 
     {
-        console.log("clicked, event href: " + event.target.href);
-        console.log("shell: " + shell);
         if(shell != null)
             event.preventDefault();
             
         shell.openExternal(event.target.href);
     });
 </script>
-</div>

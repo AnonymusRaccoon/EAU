@@ -41,7 +41,7 @@ function AddSteamGames()
             {
                 let gameData = data.response.games[i];
                 let thumbnail = "https://steamcdn-a.akamaihd.net/steam/apps/" + gameData.appid + "/header.jpg";
-                games[i] = new Game(gameData.name, gameData.appid, thumbnail, launcher.Steam, null, false, null);
+                games[i] = new Game(gameData.name, gameData.appid, thumbnail, launcher.Steam, null, true, null);
             }
 
             //Should use a cookie if the user is in the browser
