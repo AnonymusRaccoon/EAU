@@ -78,3 +78,11 @@ $theme-colors: (
 @import "fragments/library.scss";
 @import "fragments/game.scss";
 @import "fragments/settings.scss";
+
+
+$switch-bg-color: #1b57a5;//map-get($theme-colors, $primary)!default;
+$switch-checked-lever-bg: desaturate(lighten($switch-bg-color, 25%), 25%) !default;
+$switch-unchecked-bg: #F1F1F1 !default;
+$switch-unchecked-lever-bg: rgba(0,0,0,.38) !default;
+$switch-radius: 15px !default;
+@import "fragments/switch.scss";

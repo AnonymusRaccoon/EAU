@@ -7197,3 +7197,62 @@ a.text-dark:hover, a.text-dark:focus {
     display: block; }
     #setting-sidebar a:hover {
       background: #bebebe; }
+
+/* Switch (forked from materializecss.com).
+   ========================================================================== */
+.switch,
+.switch * {
+  -webkit-tap-highlight-color: transparent;
+  user-select: none; }
+
+.switch label {
+  cursor: pointer; }
+
+.switch label input[type=checkbox] {
+  opacity: 0;
+  width: 0;
+  height: 0; }
+  .switch label input[type=checkbox]:checked + .lever {
+    background-color: #739acc; }
+    .switch label input[type=checkbox]:checked + .lever:before, .switch label input[type=checkbox]:checked + .lever:after {
+      left: 18px; }
+    .switch label input[type=checkbox]:checked + .lever:after {
+      background-color: #1b57a5; }
+
+.switch label .lever {
+  content: "";
+  display: inline-block;
+  position: relative;
+  width: 36px;
+  height: 14px;
+  background-color: rgba(0, 0, 0, 0.38);
+  border-radius: 15px;
+  margin-right: 10px;
+  transition: background 0.3s ease;
+  vertical-align: middle;
+  margin: 0 16px; }
+  .switch label .lever:before, .switch label .lever:after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    left: 0;
+    top: -3px;
+    transition: left 0.3s ease, background .3s ease, box-shadow 0.1s ease, transform .1s ease; }
+  .switch label .lever:before {
+    background-color: rgba(27, 87, 165, 0.15); }
+  .switch label .lever:after {
+    background-color: #F1F1F1;
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12); }
+
+input[type=checkbox]:checked:not(:disabled) ~ .lever:active::before,
+input[type=checkbox]:checked:not(:disabled).tabbed:focus ~ .lever::before {
+  transform: scale(2.4);
+  background-color: rgba(27, 87, 165, 0.15); }
+
+input[type=checkbox]:not(:disabled) ~ .lever:active:before,
+input[type=checkbox]:not(:disabled).tabbed:focus ~ .lever::before {
+  transform: scale(2.4);
+  background-color: rgba(0, 0, 0, 0.08); }
