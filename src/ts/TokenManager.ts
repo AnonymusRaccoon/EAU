@@ -1,11 +1,11 @@
 export function getSteamToken(): string
 {
-    const Store = require("../js/store");
     const userAgent = navigator.userAgent.toLowerCase();
     console.log("Agent: " + userAgent);
     var isElectron = userAgent.indexOf(" electron/") > -1;
     if (isElectron)
     {
+        const Store = require("../js/store");
         const tknStore = new Store("account");
         const tkn = tknStore.get("steam");
         return tkn != null ? tkn : "76561198250223174";
