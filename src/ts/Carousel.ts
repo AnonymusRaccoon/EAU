@@ -18,7 +18,7 @@ export function setup()
         let SelectedGames= [];
         for(let i = 0; i< data.response.games.length; i++)
         {
-
+        
         }
         console.log(JSON.stringify(data));
     });
