@@ -104,7 +104,7 @@ function AnalyseLibrary(err, data)
                         { 
                             Game.AppId = Cutter(str_); 
                             let store_ = new store("SteamGamesMetas"); 
-                            store_.set(Game.AppId, Game); 
+                            store_.set(Game.AppId, Game);
                     });
                             
                     } );
