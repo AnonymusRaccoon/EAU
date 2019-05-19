@@ -81,39 +81,31 @@ function GetLibrary(err, data)
 }
 
 function AnalyseLibrary(err, data)
-    { 
-
-        //on hard code la request pour le moment https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=7C218E8D1347C3CD6CB8117E5ED533BC&steamid=76561198250223174&include_appinfo=1&include_played_free_games=1&appids_filter=
-        
-        //Look into steam libraries folders for acf file
-        for(let i=0;i < data.length; i++ )
-        {
+{      
+    //Look into steam libraries folders for acf file
+    for(let i=0;i < data.length; i++ )
+    {
             
-            let files = fs.readdirSync(path.normalize(data[i] + "\\steamapps"));
-            
+        let files = fs.readdirSync(path.normalize(data[i] + "\\steamapps"));        
            
-            //only select acf file
-            for(let o = 0; o < files.length; o++)
-            {     
-                if(path.extname(files[o]) === '.acf')
+        //only select acf file
+        for(let o = 0; o < files.length; o++)
+        {     
+            if(path.extname(files[o]) === '.acf')
                 { 
-                    rl.oneline(data[i] + "\\steamapps\\" + files[o] ,7, function(err,str){//note change to cut dirname
-                        let Game = new GameMeta(null, Cutter(str));
-
-                        rl.oneline(data[i] + "\\steamapps\\" + files[o] ,3, function(err,str_)
-                        { 
-                            Game.AppId = Cutter(str_); 
-                            let store_ = new store("SteamGamesMetas"); 
-                            store_.set(Game.AppId, Game);
-                    });
-                            
-                    } );
-
-                }
+                rl.oneline(data[i] + "\\steamapps\\" + files[o] ,7, function(err,str){//note change to cut dirname
+                    let Game = new GameMeta(null, Cutter(str));
+                    rl.oneline(data[i] + "\\steamapps\\" + files[o] ,3, function(err,str_)
+                    { 
+                        Game.AppId = Cutter(str_); 
+                        let store_ = new store("SteamGamesMetas"); 
+                        store_.set(Game.AppId, Game);
+                    });            
+                });
             }
         }
-        
     }
+}
 
 function Cutter (str)
 {

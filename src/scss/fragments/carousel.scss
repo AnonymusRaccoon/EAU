@@ -14,7 +14,7 @@
   width: 100%;
   height: 100%;
   position: absolute;
-  transform: translateZ(-880px) rotateY(-100deg);
+  transform: translateZ(-800px) rotateY(100deg);
   transform-style: preserve-3d;
   transition: transform 1s; 
 }
@@ -22,10 +22,11 @@
 .carousel__cell
 {
   position: absolute;
-  width: 45vw;
+  width: 75vw;
   height: auto;
   bottom: 0px;
-
+  pointer-events:auto;
+  transition: width 0.5s; 
   
   @include media-breakpoint-up(md)
   {
@@ -36,12 +37,21 @@
   {
     &:nth-child(#{$i + 1}) 
     {
-      transform: rotateY($i * 20deg) translateZ(130vw);
+      transform: rotateY($i * 40deg) translateZ(130vw);
       
       @include media-breakpoint-up(md)
       {
-        transform: rotateY($i * 20deg) translateZ(60vw);
+        transform: rotateY($i * 40deg) translateZ(60vw);
       }
     }
   }
+}
+.disabled {
+  pointer-events: none;
+  opacity: 0.0;
+}
+.higlight
+{
+  width: 30vw;
+  transition: width 0.5s; 
 }
