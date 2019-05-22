@@ -9,8 +9,10 @@
     "electron-log": "^3.0.5",
     "fs": "0.0.1-security",
     "jquery": "^3.4.0",
+    "openurl": "^1.1.1",
     "popper.js": "^1.15.0",
     "readline-specific": "^1.0.4",
+    "request": "^2.88.0",
     "simple-vdf": "^1.1.1",
     "winreg": "^1.2.4"
   },

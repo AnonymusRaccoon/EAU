@@ -1,6 +1,8 @@
 import { LoadGames, UpdateGamesJSON } from "./GameLoader";
 import { Game } from "./Game";
 
+const { ipcRenderer } = require('electron');
+
 export function populateGrid()
 {
     const games: Game[] = LoadGames();
@@ -26,5 +28,5 @@ export function populateGrid()
 
 function onGameClick(gameClicked: Game)
 {
-    console.log(gameClicked.name);
+    ipcRenderer.send('LaunchGame' ,gameClicked);
 }

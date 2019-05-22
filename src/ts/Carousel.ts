@@ -1,6 +1,9 @@
 import { type } from "os";
 //import {Game} from "./Library"
-import { Game } from "./Game";
+import { Game, launcher } from "./Game"; 
+
+const { ipcRenderer } = require('electron');
+
 
 var selectedIndex = 5;
 var carousel: any;
@@ -40,7 +43,7 @@ function iniCallback(SelectedRecentGames : GameMeta[])
         if(i < SelectedRecentGames.length )
         {
             list[i].src = "https://steamcdn-a.akamaihd.net/steam/apps/"+SelectedRecentGames[i].AppId+"/header.jpg";
-            list[i].dataset.game = SelectedRecentGames[i].AppId; 
+            list[i].dataset.game = JSON.stringify( new Game(null,SelectedRecentGames[i].AppId.toString(),list[i].srcn, launcher.Steam,"Steam" ,null, null ) ); 
             list[i].id= i.toString();
             list[i].addEventListener("click", () => 
             {
@@ -74,21 +77,17 @@ function rotateCarousel(target: any, bypass: boolean)
     //Launch the game on the front of the carousel
     if (selectedIndex == target.id && bypass == false) // the bypass is for ini
     {
-        LaunchGame(target.dataset.game);
+
+        ipcRenderer.send('LaunchGame' , target.dataset.game);
         return;
     }
     target.classList.add("higlight");// make the central cell bigger
     
-    console.log("last selected " +lastselected.id);
     carousel.style.transform =  "translateZ(-1000px) rotateY(" + angle + "deg)";
     selectedIndex = target.id;
     lastselected= target;
 }
 
-function LaunchGame(game: any)
-{
- console.log("launch game"+ game);
-}
 
 class GameMeta
 {
@@ -102,4 +101,5 @@ class GameMeta
         this.thumb = thumb;
     }
 }
+
    

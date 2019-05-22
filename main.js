@@ -1,7 +1,9 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron')
 const LocalGameDiscovery = require("./src/js/LocalGameSearch");
 const Store = require("./src/js/store");
 const log = require("electron-log");
+const { execFile } = require('child_process');
+const path = require("path");
 
 var win;
 
@@ -43,7 +45,7 @@ else
     });
 
    
-    LocalGameDiscovery.init();    
+    LocalGameDiscovery.init();   
 }
 
 function createWindow()
@@ -69,3 +71,27 @@ function handleArgs(arg)
         store.set("steam", token);
     }
 }
+
+ipcMain.on('LaunchGame', LaunchGame); 
+function LaunchGame(event,game)
+{
+    game = JSON.parse(game);
+    if( game.isInstalled != null &&game.isInstalled == false)
+    {
+        console.error(game.name + "is not installed")
+    }
+    if(game.launcher !=null && game.launcher == 1)
+    {
+        
+        let steampath = path.normalize(new Store("SteamGamesMetas").get("SteamPath") + "\\Steam.exe");
+        //let parameters = ["-applaunch " , game.appid];
+        //execFile(steampath, parameters );
+        require("openurl").open("steam://rungameid/" + game.appid)
+        //console.log(steampath +"===" + parameters)
+    }else if( game.launcher == null)
+    {
+        console.log ("game launcher is null");
+    }
+}
+
+
