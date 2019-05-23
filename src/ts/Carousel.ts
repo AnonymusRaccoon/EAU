@@ -1,6 +1,7 @@
 import { type } from "os";
 //import {Game} from "./Library"
 import { Game, launcher } from "./Game"; 
+import { getSteamToken } from "./TokenManager";
 
 const { ipcRenderer } = require('electron');
 
@@ -8,15 +9,20 @@ const { ipcRenderer } = require('electron');
 var selectedIndex = 5;
 var carousel: any;
 var angle = 0;
-var clientToken = "76561198196430655";
 var SelectedRecentGames = [] as any;
 var lastselected :any;
 export function setup()
 {
+    selectedIndex = 5; 
+    carousel = null; 
+    angle = 0; 
+    SelectedRecentGames = []; 
+    lastselected = null;
+
     selectedIndex = 0;
     //Get recent played game from steam//
     carousel = document.querySelector(".carousel");
-    $.getJSON("http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key=7C218E8D1347C3CD6CB8117E5ED533BC&steamid="+ clientToken +"&format=json",
+    $.getJSON("http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key=7C218E8D1347C3CD6CB8117E5ED533BC&steamid="+ getSteamToken() +"&format=json",
     JSON ,(data:any)=>{
 
         if(data.response.total_count ==0){ // null check to prevent error there is no recent game
@@ -43,7 +49,7 @@ function iniCallback(SelectedRecentGames : GameMeta[])
         if(i < SelectedRecentGames.length )
         {
             list[i].src = "https://steamcdn-a.akamaihd.net/steam/apps/"+SelectedRecentGames[i].AppId+"/header.jpg";
-            list[i].dataset.game = JSON.stringify( new Game(null,SelectedRecentGames[i].AppId.toString(),list[i].srcn, launcher.Steam,"Steam" ,null, null ) ); 
+            list[i].dataset.game = JSON.stringify( new Game(null,SelectedRecentGames[i].AppId,list[i].srcn, launcher.Steam,null ,null, null ) ); 
             list[i].id= i.toString();
             list[i].addEventListener("click", () => 
             {
@@ -91,10 +97,10 @@ function rotateCarousel(target: any, bypass: boolean)
 
 class GameMeta
 {
-    AppId: number;
+    AppId: string;
     name: string;
     thumb: string;
-    constructor(AppId: number, name: string, thumb:string)
+    constructor(AppId: string, name: string, thumb:string)
     {
         this.AppId = AppId;
         this.name = name;

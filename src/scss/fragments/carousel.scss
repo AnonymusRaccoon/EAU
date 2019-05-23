@@ -52,10 +52,17 @@
 
 .disabled {
   pointer-events: none;
-  opacity: 0.0;
+  opacity: 0;
 }
 .higlight
 {
-  width: 30vw;
-  transition: width 0.5s; 
+  
+  transition: width 0.5s;
+  @include media-breakpoint-up(sm){
+    width: 20vw;
+  }
+  @include media-breakpoint-up(md)
+  {
+    width: 20vw;
+  }
 }

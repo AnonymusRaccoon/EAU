@@ -73,21 +73,18 @@ function handleArgs(arg)
 }
 
 ipcMain.on('LaunchGame', LaunchGame); 
-function LaunchGame(event,game)
+function LaunchGame(event, game)
 {
     game = JSON.parse(game);
-    if( game.isInstalled != null &&game.isInstalled == false)
+    if(game.isInstalled != true)
     {
         console.error(game.name + "is not installed")
     }
     if(game.launcher !=null && game.launcher == 1)
     {
         
-        let steampath = path.normalize(new Store("SteamGamesMetas").get("SteamPath") + "\\Steam.exe");
-        //let parameters = ["-applaunch " , game.appid];
-        //execFile(steampath, parameters );
         require("openurl").open("steam://rungameid/" + game.appid)
-        //console.log(steampath +"===" + parameters)
+        
     }else if( game.launcher == null)
     {
         console.log ("game launcher is null");

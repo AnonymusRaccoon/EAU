@@ -7145,11 +7145,16 @@ a.text-dark:hover, a.text-dark:focus {
 
 .disabled {
   pointer-events: none;
-  opacity: 0.0; }
+  opacity: 0; }
 
 .higlight {
-  width: 30vw;
   transition: width 0.5s; }
+  @media (min-width: 576px) {
+    .higlight {
+      width: 20vw; } }
+  @media (min-width: 768px) {
+    .higlight {
+      width: 20vw; } }
 
 .grid {
   display: flex;
