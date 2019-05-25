@@ -48,18 +48,4 @@
             
         shell.openExternal(event.currentTarget.href);
     });
-    
-    if($("#body").hasClass("dark-mode"))
-    {
-        $(".switch").find("input[type=checkbox]").prop("checked", true);
-    }
-
-    $(".switch").find("input[type=checkbox]").on("change",function() {
-        var checked = $(this).prop("checked");
-
-        if(checked)
-            $("#body").addClass("dark-mode");
-        else
-            $("#body").removeClass("dark-mode");
-    });
 </script>

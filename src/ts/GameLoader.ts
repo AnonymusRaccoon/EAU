@@ -4,7 +4,6 @@ import { Game, launcher } from "./Game";
 
 export function LoadGames(): Game[]
 {
-    const Store = require("../js/store");
     const userAgent = navigator.userAgent.toLowerCase();
     var isElectron = userAgent.indexOf(" electron/") > -1;
     if (isElectron)

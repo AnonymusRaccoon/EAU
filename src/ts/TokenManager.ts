@@ -6,7 +6,7 @@ export function getSteamToken(): string
     if (isElectron)
     {
         const Store = require("../js/store");
-        const tknStore = new Store("account");
+        const tknStore = new Store("config");
         const tkn = tknStore.get("steam");
         return tkn != null ? tkn : "76561198196430655";
     }

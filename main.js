@@ -67,7 +67,7 @@ function handleArgs(arg)
     {
         var token = arg.substring(arg.lastIndexOf("id/") + 3);
         log.log("Token: " + token);
-        var store = new Store("account");
+        var store = new Store("config");
         store.set("steam", token);
     }
 }
