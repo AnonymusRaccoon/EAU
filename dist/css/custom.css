@@ -7073,10 +7073,10 @@ a.text-dark:hover, a.text-dark:focus {
 .scene {
   position: relative;
   width: 100px;
-  height: 200px;
+  height: 220px;
   margin: 80px auto;
   margin-top: 0px;
-  margin-bottom: 0px;
+  margin-bottom: 50px;
   perspective: 1000px; }
 
 .carousel {
@@ -7089,14 +7089,14 @@ a.text-dark:hover, a.text-dark:focus {
 
 .carousel__cell {
   position: absolute;
-  width: 75vw;
+  width: 60vw;
   height: auto;
   bottom: 0px;
   pointer-events: auto;
   transition: width 0.5s; }
   @media (min-width: 768px) {
     .carousel__cell {
-      width: 20vw; } }
+      width: 15vw; } }
   .carousel__cell:nth-child(1) {
     transform: rotateY(0deg) translateZ(130vw); }
     @media (min-width: 768px) {
@@ -7148,6 +7148,7 @@ a.text-dark:hover, a.text-dark:focus {
   opacity: 0; }
 
 .higlight {
+  width: 65vw;
   transition: width 0.5s; }
   @media (min-width: 576px) {
     .higlight {
