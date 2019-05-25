@@ -26,12 +26,13 @@
         <p>To add game please wait 10 years and come back here.</p>
 
         <h1 name ="Man">Appearances</h1>
-        <p>Use the dark mode: </p> <span><div class="switch">
+        <p>Use the dark mode: </p> <span>
+        <div class="switch">
             <label>
-              Off
-              <input type="checkbox">
-              <span class="lever"></span>
-              On
+                Off
+                <input type="checkbox">
+                <span class="lever"></span>
+                On
             </label>
           </div>
         </span>
@@ -47,12 +48,10 @@
             
         shell.openExternal(event.currentTarget.href);
     });
-
+    
     if($("#body").hasClass("dark-mode"))
     {
-        console.log("dark mode is on");
-        console.log("switch: " + $(".switch"));
-        $(".switch").prop("checked", true); //Lol ca marche pas
+        $(".switch").find("input[type=checkbox]").prop("checked", true);
     }
 
     $(".switch").find("input[type=checkbox]").on("change",function() {
