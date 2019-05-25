@@ -76,9 +76,9 @@ ipcMain.on('LaunchGame', LaunchGame);
 function LaunchGame(event, game)
 {
     game = JSON.parse(game);
-    if(game.isInstalled != true)
+    if(game.isInstalled != true && game.launcher != 0)
     {
-        console.error(game.name + "is not installed")
+        console.error(game.name + " is not installed")
     }
     if(game.launcher !=null && game.launcher == 1)
     {
