@@ -1,5 +1,5 @@
 # EAU
-Launcher that allow you to launch any games from any launcher (Steam, Origin, Local exe...)
+EAU is launcher that allows you to launch any games from any launcher (Steam, Origin, Local executable...)
 
 Please note that this project is currently under developement and awaiting a first release
 # Current Status
