@@ -1,9 +1,9 @@
-// import $ from "jquery"; //Using global scope jquery instead beacause it make a huge file if we use this.
 import { setup } from "./Carousel";
 import { populateGrid } from "./Library"
 const Store = require("../js/store");
 
 
+//Initialization of the app (load the home page, check if the user wants to use the dark mode and add buttons clicks)
 $(function ()
 {
     const config = new Store("config");
@@ -19,6 +19,7 @@ $(function ()
     document.getElementById("settingsBtn").onclick = () => { openSettings() };
 });
 
+//Load the home page (called when the user click the home button)
 function home()
 {
     $("#content").load("fragments/home.html", () =>
@@ -37,6 +38,7 @@ function openSearch()
     input.focus();
 }
 
+//Load the settings menu and set the settings to their good state.
 function openSettings()
 {
     $("#content").load("fragments/settings.html", () =>
@@ -58,7 +60,6 @@ function openSettings()
     });
     document.getElementById("title").innerHTML = "<i class='icon fas fa-arrow-left'></i>  Settings";
 }
-
 
 require("./Library");
 require("./Carousel");

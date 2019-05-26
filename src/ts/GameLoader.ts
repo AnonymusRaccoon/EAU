@@ -2,6 +2,7 @@ const Store = require("../js/store");
 import * as TokenManager from "./TokenManager";
 import { Game, launcher } from "./Game";
 
+//Read the game.json file and return the list of detected games.
 export function LoadGames(): Game[]
 {
     const userAgent = navigator.userAgent.toLowerCase();
@@ -18,12 +19,13 @@ export function LoadGames(): Game[]
     }
 }
 
+//Refresh the game.json file with content from the logged in accounts
 export function UpdateGamesJSON()
 {
     AddSteamGames();
 }
 
-//#region SteamRequests
+//Add all steam games to the database.
 function AddSteamGames()
 {
     const steamToken = TokenManager.getSteamToken();
@@ -48,4 +50,3 @@ function AddSteamGames()
             store.set("games", games); //SHOULDN'T DO IT LIKE THAT, It override every games in the json.
         });
 }
-//#endregion

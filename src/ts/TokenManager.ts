@@ -1,3 +1,4 @@
+//Will return the steam token of the user if he is logged in. Else, it will return a default steam token (for debbug)
 export function getSteamToken(): string
 {
     const userAgent = navigator.userAgent.toLowerCase();

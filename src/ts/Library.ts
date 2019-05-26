@@ -1,8 +1,8 @@
 import { LoadGames, UpdateGamesJSON } from "./GameLoader";
 import { Game } from "./Game";
-
 const { ipcRenderer } = require('electron');
 
+//Will get the games in the game.json file and display them in a grid view. Will also refresh the game.json.
 export function populateGrid()
 {
     const games: Game[] = LoadGames();
@@ -28,5 +28,6 @@ export function populateGrid()
 
 function onGameClick(gameClicked: Game)
 {
-    ipcRenderer.send('LaunchGame' ,gameClicked);
+    //Send the click event to the nodeJS process to handle game launch.
+    ipcRenderer.send("LaunchGame", gameClicked);
 }
